@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Masterclass | Vodič kroz budućnost</title>
+    <style>
+        /* Osnovne varijable za boje */
+        :root {
+            --bg-color: #05070a;
+            --card-bg: #0f172a;
+            --accent-primary: #3b82f6;
+            --accent-secondary: #06b6d4;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Pozadinski sjaj (Glow) */
+        .background-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 50% -20%, #1e3a8a 0%, transparent 50%);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Navigacija */
+        nav {
+            padding: 1.5rem 10%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid var(--glass-border);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -1px;
+            background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Hero Sekcija */
+        header {
+            text-align: center;
+            padding: 100px 20px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-size: clamp(2.5rem, 8vw, 4.5rem);
+            line-height: 1.1;
+            margin-bottom: 20px;
+            font-weight: 900;
+        }
+
+        h1 span {
+            color: var(--accent-primary);
+        }
+
+        header p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Grid sustav za kartice */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 100px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        /* Kartica (Card Design) */
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--glass-border);
+            padding: 40px;
+            border-radius: 24px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(59, 130, 246, 0.1));
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-primary);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 25px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--accent-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #2563eb;
+            box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+        }
+
+        /* Animacija pojave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .card { animation: fadeIn 0.8s ease backwards; }
+        .card:nth-child(2) { animation-delay: 0.2s; }
+        .card:nth-child(3) { animation-delay: 0.4s; }
+
+    </style>
+</head>
+<body>
+
+    <div class="background-glow"></div>
+
+    <nav>
+        <div class="logo">AI.VODIČ</div>
+        <div class="nav-links">
+            <a href="#" style="color: white; text-decoration: none; font-size: 0.9rem;">Dokumentacija</a>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Nauči AI <span>Pametnije</span>, Ne Teže.</h1>
+        <p>Sveobuhvatna kolekcija resursa za inženjere, dizajnere i entuzijaste koji žele dominirati AI prostorom.</p>
+    </header>
+
+    <div class="container">
+        <div class="card">
+            <span class="card-tag">Osnove</span>
+            <h3>Deep Learning 101</h3>
+            <p>Saznajte kako neuronske mreže oponašaju ljudski mozak i kako se grade prvi modeli.</p>
+            <a href="#" class="btn">Započni Modul</a>
+        </div>
+
+        <div class="card">
+            <span class="card-tag">Napredno</span>
+            <h3>NLP & Transformers</h3>
+            <p>Arhitektura iza ChatGPT-a. Nauči kako strojevi razumiju i generiraju ljudski jezik.</p>
+            <a href="#" class="btn">Istraži Kod</a>
+        </div>
+
+        <div class="card">
+            <span class="card-tag">Primjena</span>
+            <h3>AI u Dizajnu</h3>
+            <p>Korištenje Midjourney i Stable Diffusion alata za profesionalne vizuale i UI/UX.</p>
+            <a href="#" class="btn">Pogledaj Primjere</a>
+        </div>
+    </div>
+
+</body>
+</html>
